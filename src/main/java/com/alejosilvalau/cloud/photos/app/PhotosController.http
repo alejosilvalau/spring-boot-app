@@ -7,5 +7,12 @@ GET http://localhost:8080/photos/1
 ### Delete a photo by ID
 DELETE http://localhost:8080/photos/1
 
+### Create a new photo
+POST http://localhost:8080/photos
+Content-Type: application/json
+
+{
+  "fileName": "sunset.jpg"
+}
 
     
