@@ -12,7 +12,7 @@ POST http://localhost:8080/photos
 Content-Type: application/json
 
 {
-  "fileName": "sunset.jpg"
+  "fileName": ""
 }
 
     

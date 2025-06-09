@@ -1,7 +1,11 @@
 package com.alejosilvalau.cloud.photos.app;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public class Photo {
   private String id;
+  
+  @NotEmpty
   private String fileName;
 
   public Photo() {
