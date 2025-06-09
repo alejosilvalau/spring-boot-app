@@ -1,0 +1,11 @@
+### Get all photos
+GET http://localhost:8080/photos
+
+### Get a photo by ID
+GET http://localhost:8080/photos/1
+
+### Delete a photo by ID
+DELETE http://localhost:8080/photos/1
+
+
+    
