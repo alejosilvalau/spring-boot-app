@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotEmpty;
 
 public class Photo {
   private String id;
+  private byte[] data;
   
   @NotEmpty
   private String fileName;
@@ -32,4 +33,11 @@ public class Photo {
     this.fileName = fileName;
   }
 
+  public byte[] getData() {
+    return data;
+  }
+
+  public void setData(byte[] data) {
+    this.data = data;
+  }
 }
