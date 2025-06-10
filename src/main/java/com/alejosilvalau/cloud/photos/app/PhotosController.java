@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
-import jakarta.validation.Valid;
-
 @RestController
 public class PhotosController {
   private Map<String, Photo> db = new HashMap<>() {
