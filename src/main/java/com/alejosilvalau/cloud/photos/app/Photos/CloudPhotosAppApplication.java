@@ -1,4 +1,4 @@
-package com.alejosilvalau.cloud.photos.app;
+package com.alejosilvalau.cloud.photos.app.Photos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

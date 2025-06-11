@@ -1,4 +1,4 @@
-package com.alejosilvalau.cloud.photos.app;
+package com.alejosilvalau.cloud.photos.app.Photos;
 
 import java.io.IOException;
 // Java core imports
@@ -22,13 +22,13 @@ public class PhotosController {
   }
 
   @GetMapping("/photos")
-  public Collection<Photo> get() {
+  public Collection<Photo> findAll() {
     return photosService.findAll();
   }
 
   @GetMapping("/photos/{id}")
   public Photo get(@PathVariable String id) {
-    Photo photo = photosService.get(id);
+    Photo photo = photosService.getOne(id);
     if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     return photo;
   }
@@ -41,11 +41,6 @@ public class PhotosController {
   
   @PostMapping("/photos")
   public Photo create(@RequestPart("data") MultipartFile file) throws IOException {
-    Photo photo = new Photo();
-    photo.setId(UUID.randomUUID().toString());
-    photo.setFileName(file.getOriginalFilename());
-    photo.setData(file.getBytes());
-    photosService.save(photo.getId(), photo);
-    return photo;
+    return photosService.save(file.getOriginalFilename(), file.getBytes());
   }
 }

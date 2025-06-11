@@ -1,4 +1,4 @@
-package com.alejosilvalau.cloud.photos.app;
+package com.alejosilvalau.cloud.photos.app.Photos;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
