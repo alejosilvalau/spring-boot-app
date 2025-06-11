@@ -4,6 +4,7 @@ import java.io.IOException;
 // Java core imports
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 // Spring framework imports
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +13,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 public class PhotosController {
-  private Map<String, Photo> db = new HashMap<>() {
-    {
-      put("1", new Photo("1", "hello.jpg"));
-    }
-  };
+  @Autowired
+  private PhotosService photosService;
 
   @GetMapping("/")
   public String hello() {
@@ -25,19 +23,19 @@ public class PhotosController {
 
   @GetMapping("/photos")
   public Collection<Photo> get() {
-    return db.values();
+    return photosService.findAll();
   }
 
   @GetMapping("/photos/{id}")
   public Photo get(@PathVariable String id) {
-    Photo photo = db.get(id);
+    Photo photo = photosService.get(id);
     if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     return photo;
   }
 
   @DeleteMapping("/photos/{id}")
   public void delete(@PathVariable String id) {
-    Photo photo = db.remove(id);
+    Photo photo = photosService.remove(id);
     if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
   }
   
@@ -47,7 +45,7 @@ public class PhotosController {
     photo.setId(UUID.randomUUID().toString());
     photo.setFileName(file.getOriginalFilename());
     photo.setData(file.getBytes());
-    db.put(photo.getId(), photo);
+    photosService.save(photo.getId(), photo);
     return photo;
   }
 }
