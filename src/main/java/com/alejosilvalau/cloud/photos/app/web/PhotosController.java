@@ -1,4 +1,4 @@
-package com.alejosilvalau.cloud.photos.app.Photos;
+package com.alejosilvalau.cloud.photos.app.web;
 
 import java.io.IOException;
 // Java core imports
@@ -10,6 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.alejosilvalau.cloud.photos.app.model.Photo;
+import com.alejosilvalau.cloud.photos.app.service.PhotosService;
 
 @RestController
 public class PhotosController {

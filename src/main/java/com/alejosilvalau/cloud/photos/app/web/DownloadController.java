@@ -1,10 +1,10 @@
-package com.alejosilvalau.cloud.photos.app.downloads;
+package com.alejosilvalau.cloud.photos.app.web;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.*;
 
-import com.alejosilvalau.cloud.photos.app.Photos.Photo;
-import com.alejosilvalau.cloud.photos.app.Photos.PhotosService;
+import com.alejosilvalau.cloud.photos.app.model.Photo;
+import com.alejosilvalau.cloud.photos.app.service.PhotosService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;

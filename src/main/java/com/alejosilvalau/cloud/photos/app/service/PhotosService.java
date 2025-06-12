@@ -1,10 +1,12 @@
-package com.alejosilvalau.cloud.photos.app.Photos;
+package com.alejosilvalau.cloud.photos.app.service;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.*;
 
 import org.springframework.stereotype.*;
+
+import com.alejosilvalau.cloud.photos.app.model.Photo;
 
 @Service
 public class PhotosService {
