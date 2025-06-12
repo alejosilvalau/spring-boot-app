@@ -7,34 +7,34 @@ import java.util.*;
 import org.springframework.stereotype.*;
 
 import com.alejosilvalau.cloud.photos.app.model.Photo;
+import com.alejosilvalau.cloud.photos.app.repository.PhotosRepository;
 
 @Service
 public class PhotosService {
-    private Map<String, Photo> db = new HashMap<>() {
-    {
-      put("1", new Photo());
-    }
-  };
+  private final PhotosRepository photosRepository;
 
-  public Collection<Photo> findAll() {
-    return db.values();
+  public PhotosService(PhotosRepository photosRepository) {
+    this.photosRepository = photosRepository;
   }
 
-  public Photo getOne(String id) {
-    return db.get(id);
+  public Iterable<Photo> findAll() {
+    return photosRepository.findAll();
   }
 
-  public Photo remove(String id) {
-    return db.remove(id);
+  public Photo getOne(Integer id) {
+    return photosRepository.findById(id).orElse(null);
+  }
+
+  public void remove(Integer id) {
+    photosRepository.deleteById(id);
   }
 
   public Photo save(String fileName, String contentType, byte[] data) {
     Photo photo = new Photo();
-    photo.setId(UUID.randomUUID().hashCode());
     photo.setFileName(fileName);
     photo.setData(data);
     photo.setContentType(contentType);
-    db.put(photo.getId().toString(), photo);
+    photosRepository.save(photo);
     return photo;
   }
 }
