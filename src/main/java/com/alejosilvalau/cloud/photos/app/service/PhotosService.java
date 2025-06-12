@@ -12,7 +12,7 @@ import com.alejosilvalau.cloud.photos.app.model.Photo;
 public class PhotosService {
     private Map<String, Photo> db = new HashMap<>() {
     {
-      put("1", new Photo("1", "hello.jpg"));
+      put("1", new Photo());
     }
   };
 
@@ -30,11 +30,11 @@ public class PhotosService {
 
   public Photo save(String fileName, String contentType, byte[] data) {
     Photo photo = new Photo();
-    photo.setId(UUID.randomUUID().toString());
+    photo.setId(UUID.randomUUID().hashCode());
     photo.setFileName(fileName);
     photo.setData(data);
     photo.setContentType(contentType);
-    db.put(photo.getId(), photo);
+    db.put(photo.getId().toString(), photo);
     return photo;
   }
 }

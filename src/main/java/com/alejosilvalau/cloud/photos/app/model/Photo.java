@@ -1,11 +1,16 @@
 package com.alejosilvalau.cloud.photos.app.model;
 
+import org.springframework.data.annotation.*;
+import org.springframework.data.relational.core.mapping.Table;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.validation.constraints.NotEmpty;
 
+@Table("PHOTO")
 public class Photo {
-  private String id;
+  @Id
+  private Integer id;
   
   @NotEmpty
   private String fileName;
@@ -18,16 +23,11 @@ public class Photo {
   public Photo() {
   }
 
-  public Photo(String id, String fileName) {
-    this.id = id;
-    this.fileName = fileName;
-  }
-
-  public String getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
