@@ -1,8 +1,7 @@
 package com.alejosilvalau.cloud.photos.app.web;
 
 import java.io.IOException;
-// Java core imports
-import java.util.*;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 // Spring framework imports
